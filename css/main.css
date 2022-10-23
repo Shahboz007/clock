@@ -3,6 +3,10 @@
   margin: 0;
   box-sizing: border-box;
 }
+*::before,
+*::after{
+  box-sizing: inherit;
+}
 
 body {
   font-family: sans-serif;
@@ -14,8 +18,50 @@ body {
   justify-content: center;
   width: 100%;
   height: 100vh;
+  background: linear-gradient(246.39deg, #6728EC 12.63%, #15CDF5 112.4%);
 }
 
 .clock {
-  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 100px;
+  line-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.clock>span {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 160px;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 0;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+.clock>span::before,
+.clock>span::after {
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  content: "";
+  z-index: -1;
+}
+.clock>span::before {
+  top: 0;
+  left: 0;  
+  background: rgba(217, 217, 217, 0.85);
+}
+.clock>span::after {
+  bottom: 0;
+  left: 0;  
+  background: rgba(184, 182, 182, 0.85);
+}
+.clock>span>span {
+  z-index: 9999;
 }
